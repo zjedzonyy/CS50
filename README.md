@@ -1,2 +1,2 @@
-# CS50x Final Project
+Most important projects created during CS50x.
 
