@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Top
+{% endblock %}
+
+{% block main %}
+<form action="/top" method="post">
+          {% for result in results %}
+          <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <img src="https://poyerbani.pl{{result.image}}" class="img-fluid" alt="image">
+                    <h2> {{ result.price }}zł</h2>
+                </div>
+                <div class="col d-flex align-items-center">
+                    Rating = {{ result.rating }} / 10
+                    <br>
+                    Votes = {{ result.votes }}
+                </div>
+            </div>
+          {% endfor %}
+</form>
+{% endblock %}

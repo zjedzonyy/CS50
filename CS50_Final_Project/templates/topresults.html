@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Top
+{% endblock %}
+
+{% block main %}
+        <h1>Check out TOP 10...</h1>
+        <form action="/topresults" method="get">
+                {% for item in items %}
+                    {{ item }}
+                {% endfor %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<form action="/history" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Producer</th>
+                <th scope="col">Flavor</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Date Rated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td><img src="https://poyerbani.pl{{result.image}}" class="img-fluid" alt="image"></td>
+                    <td>{{ result.producer }}</td>
+                    <td>{{ result.flavor }}</td>
+                    <td>{{ result.rating }} / 10</td>
+                    <td>{{ result.date_rated }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+{% endblock %}

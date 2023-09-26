@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Yerba Mate
+{% endblock %}
+
+{% block main %}
+        <h1>Search for yerba</h1>
+        <form action="/yerbamate" method="post">
+            <select name="search by" id="search by" onchange="toggleDropdowns()">
+                <option disabled selected value="">Search by</option>
+                <option value="flavors"> Flavors </option>
+                <option value="producents"> Producer </option>
+              </select>
+            <select name="flavors" id="flavors" disabled>
+                <option disabled selected value="">Flavors</option>
+                <option value="None">None</option>
+                {% for flavor in flavors %}
+                    <option value="{{ flavor.flavor }}">{{ flavor.flavor }}</option>
+                {% endfor %}
+              </select>
+              <select name="producents" id="producents" disabled>
+                <option disabled selected value="">Producents</option>
+                <option value="None">None</option>
+                {% for producent in producents %}
+                    <option value="{{ producent.producer }}">{{ producent.producer }}</option>
+                {% endfor %}
+              </select>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="price" placeholder="Max. price" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

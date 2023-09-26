@@ -1,0 +1,89 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Yerbas
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Producer</th>
+        <th scope="col">Flavor</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ producer }}</td>
+        <td>{{ flavor }}</td>
+        <td>{{ price }}zł</td>
+      </tr>
+    </tbody>
+  </table>
+
+  {% for result in results %}
+    <form action="/yerbamateresults" method="post">
+        <input type="hidden" name="yerba_id" value="{{ result.yerba_id }}">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <img src="https://poyerbani.pl{{result.image}}" class="img-fluid" alt="image">
+                    <h2> {{ result.price }}zł</h2>
+                </div>
+                <div class="col d-flex align-items-center">
+                    {{ result.description }}
+                </div>
+                <div class="col d-flex align-items-center">
+                    Rating = {{ result.rating }} / 10
+                    <br>
+                    Votes = {{ result.votes }}
+                </div>
+            </div>
+            <div class="container2">
+                {% if result.user_rating %}
+                    <div class="post">
+                        <div class="text">Thanks for rating this product!</div>
+                        {{ result.user_rating }}
+                    </div>
+                {% else %}
+                    <div class="star-widget">
+                        <input type="radio" name="rate" id="rate-10-{{ result.yerba_id }}"value="10">
+                        <label for="rate-10-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-9-{{ result.yerba_id }}" value="9">
+                        <label for="rate-9-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-8-{{ result.yerba_id }}" value="8">
+                        <label for="rate-8-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-7-{{ result.yerba_id }}" value="7">
+                        <label for="rate-7-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-6-{{ result.yerba_id }}" value="6">
+                        <label for="rate-6-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-5-{{ result.yerba_id }}" value="5">
+                        <label for="rate-5-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-4-{{ result.yerba_id }}" value="4">
+                        <label for="rate-4-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-3-{{ result.yerba_id }}" value="3">
+                        <label for="rate-3-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-2-{{ result.yerba_id }}" value="2">
+                        <label for="rate-2-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <input type="radio" name="rate" id="rate-1-{{ result.yerba_id }}" value="1">
+                        <label for="rate-1-{{ result.yerba_id }}" class="fas fa-star"></label>
+                        <header>What do you think about me?</header>
+                        <div class="btn">
+                            <button type="submit">Rate Me</button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+  {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
