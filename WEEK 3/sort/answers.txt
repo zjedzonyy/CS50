@@ -1,0 +1,36 @@
+sort1 uses: Bubble
+
+How do you know?: Becuase it's the fastest for the sorted data structure.
+
+sort2 uses: Merge
+
+How do you know?: It's the fastest algorithm for the random data structure.
+
+sort3 uses: Selection
+
+How do you know?: It's the slowest for the sorted data structure.
+
+      1        2       3       6       9
+s1; 00,101; 00,318;  07,680  05,585; 00,435
+s2; 00,048; 00,085;  00,583  00,585; 00,720
+s3; 00,046; 00,181;  03,229  03,275; 03,563
+
+// Reversed50000
+SELECTION: S1, the longest time for the reversed data sheet
+MERGE: S2, the fastest program
+BUBBLE: S3, faster than Selection
+
+//Random10000
+S1:Selection
+S2:MERGE, the fastest program the more data
+S3:Bubble
+
+//Sorted50000
+S1:Bubble
+S2:Selection
+S3:Merge
+
+
+Selection - doesn't matter structure of a data. Always has to do complete the algorithm, same amount of repetitions.
+Bubble -
+Merge - best for the random data I guees
