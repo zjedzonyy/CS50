@@ -1,0 +1,20 @@
+cs50
+Flask
+Flask-Session
+requests
+CREATE TABLE portfolio (
+    id INTEGER,
+    symbol VARCHAR,
+    quantity INTEGER,
+    FOREIGN KEY(id) REFERENCES users(id)
+)
+CREATE TABLE transactions (
+    transaction_id INTEGER PRIMARY KEY,
+    id INTEGER,
+    symbol TEXT,
+    quantity INTEGER,
+    price REAL,
+    type TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(id) REFERENCES users(id)
+);

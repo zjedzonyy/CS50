@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Bought
+{% endblock %}
+
+{% block main %}
+
+        <form action="/sold" method="get">
+            <p> Sold! </p>
+        </form>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+              </tr>
+              {% for symbol, info in index.items() %}
+              <tr>
+                  <td> {{ symbol}}</td>
+                  <td> {{ info.quantity }}</td>
+                  <td> {{ info.price }} </td>
+                  <td> {{ info.total}} </td>
+              </tr>
+          {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                    <td class="border-0 text-end">{{ cash }}</td>
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Total</td>
+                    <td class="border-0 w-bold text-end">{{ total }}</td>
+                </tr>
+            </tfoot>
+          </table>
+{% endblock %}

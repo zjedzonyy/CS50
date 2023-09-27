@@ -1,0 +1,33 @@
+*{
+    margin: 5px;
+    box-sizing: border-box;
+}
+body{
+    height: 95vh;
+    background-image: url("https://factech.co.in/blog/wp-content/uploads/2020/12/HVAC-annual-maintenance.png");
+    font-family: Times;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    padding: 50px;
+}
+.main{
+    display: flex;
+    flex: 1;
+}
+main{
+    padding: 25px;
+    flex: 25px;
+}
+.right{
+    padding: 25px;
+    flex: 10px;
+}
+footer{
+    padding: 25px;
+}
+
